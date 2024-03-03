@@ -3,7 +3,6 @@ package com.example.moviemanagement.service;
 import com.example.moviemanagement.domain.Actor;
 import com.example.moviemanagement.repository.ActorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,16 +29,16 @@ public class ActorServiceImpl implements ActorService {
 
     @Override
     public void deleteActor(Long id) {
-        actorRepo.deleteByActorId(id);
+        actorRepo.deleteById(id);
     }
 
     @Override
     public Optional<Actor> getActorById(Long id) {
-        return actorRepo.findByActorId(id);
+        return actorRepo.findById(id);
     }
 
     @Override
     public Optional<Actor> getActorByName(String name) {
-        return actorRepo.retrieveByName(name);
+        return actorRepo.findByActorName(name);
     }
 }
