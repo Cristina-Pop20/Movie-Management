@@ -12,8 +12,6 @@ import java.util.Optional;
 
 @Repository
 public interface SignedActorsRepo extends JpaRepository<SignedActors, Long> {
-    SignedActors save(SignedActors signedActors);
-
     @Query("SELECT s.actor.actorName FROM SignedActors s WHERE s.movie.movieId = :movieId")
     List<String> retrieveActorNamesByMovieId(@Param("movieId") Long movieId);
 

@@ -21,14 +21,9 @@ public class MovieController {
 
     @GetMapping("/{id}")
     public Movie getMovieById(@PathVariable("id") Long id) {
-        try {
-            return movieService.getMovieById(id)
-                    .orElseThrow(() -> new ResponseStatusException(
-                            HttpStatus.NOT_FOUND, "Movie Not Found"));
-        } catch (Exception ex) {
-            throw new ResponseStatusException(
-                    HttpStatus.INTERNAL_SERVER_ERROR, "Internal Server Error", ex);
-        }
+        return movieService.getMovieById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Movie Not Found"));
     }
 
     @GetMapping

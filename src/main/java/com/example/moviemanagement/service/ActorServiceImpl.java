@@ -39,6 +39,6 @@ public class ActorServiceImpl implements ActorService {
 
     @Override
     public Optional<Actor> getActorByName(String name) {
-        return actorRepo.findByActorName(name);
+        return actorRepo.retrieveByName(name);
     }
 }

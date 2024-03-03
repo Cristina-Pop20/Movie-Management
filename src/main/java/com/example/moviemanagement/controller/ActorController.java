@@ -22,14 +22,9 @@ public class ActorController {
 
     @GetMapping("/{id}")
     public Actor getActorById(@PathVariable("id") Long id) {
-        try {
-            return actorService.getActorById(id)
-                    .orElseThrow(() -> new ResponseStatusException(
-                            HttpStatus.NOT_FOUND, "Actor Not Found"));
-        } catch (Exception ex) {
-            throw new ResponseStatusException(
-                    HttpStatus.INTERNAL_SERVER_ERROR, "Internal Server Error", ex);
-        }
+        return actorService.getActorById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Actor Not Found"));
     }
 
     @GetMapping

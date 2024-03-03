@@ -30,12 +30,12 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public void deleteMovie(Long id) {
-        movieRepo.deleteByMovieId(id);
+        movieRepo.deleteById(id);
     }
 
     @Override
     public Optional<Movie> getMovieById(Long id) {
-        return movieRepo.findByMovieId(id);
+        return movieRepo.findById(id);
     }
 
 }
